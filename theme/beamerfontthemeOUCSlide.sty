@@ -1,0 +1,224 @@
+%!TEX program = xelatex
+
+%% 版本：1.0
+%% 作者：杨永全
+%% 本文件的主要作用,是定义各种元素的字体
+%% 完成日期:2022-05-09
+
+\usepackage[UTF8]{ctex}
+%\usepackage{xeCJK}
+
+%字体
+
+%设置英文字体 鸿蒙字体
+\setmainfont[
+    Path=fonts/,
+    BoldFont=HarmonyOS_Sans_Bold.ttf,
+    ItalicFont=HarmonyOS_Sans_Regular_Italic.ttf,
+    BoldItalicFont=HarmonyOS_Sans_Bold_Italic.ttf,
+]{HarmonyOS_Sans_Regular.ttf}
+\setsansfont[
+    Path=fonts/,
+    BoldFont=HarmonyOS_Sans_Bold.ttf,
+    ItalicFont=HarmonyOS_Sans_Regular_Italic.ttf,
+    BoldItalicFont=HarmonyOS_Sans_Bold_Italic.ttf,
+]{HarmonyOS_Sans_Regular.ttf}
+\setmonofont[
+    Path=fonts/
+]{HarmonyOS_Sans_Regular.ttf}
+
+%设置中文字体 鸿蒙字体
+\setCJKmainfont[
+    Path=fonts/,
+    BoldFont=HarmonyOS_Sans_SC_Bold.ttf, 
+    ItalicFont=HarmonyOS_Sans_SC_Regular.ttf, 
+    BoldItalicFont=HarmonyOS_Sans_SC_Bold.ttf
+]{HarmonyOS_Sans_SC_Regular.ttf}
+\setCJKsansfont[
+    Path=fonts/,
+    BoldFont=HarmonyOS_Sans_SC_Bold.ttf, 
+    ItalicFont=HarmonyOS_Sans_SC_Regular.ttf, 
+    BoldItalicFont=HarmonyOS_Sans_SC_Bold.ttf
+]{HarmonyOS_Sans_SC_Regular.ttf}
+\setCJKmonofont[
+    Path=fonts/
+]{HarmonyOS_Sans_SC_Regular.ttf}
+
+
+
+\mode<presentation>
+
+\setbeamerfont{sectiontitle}{size*={18pt}{20pt},series=\bfseries} % section标题字体大小
+\setbeamerfont{title}{size*={15pt}{16pt},series=\bfseries} % 标题字体大小
+
+\setbeamerfont{subtitle short}{size*={11pt}{12pt},series=\mdseries}  % 副标题 短的 字体大小
+\setbeamerfont{subtitle long}{size*={9pt}{9pt},series=\mdseries}  % 副标题 长的 字体大小
+\setbeamerfont*{subtitle}{parent=subtitle long} % 使用父标题
+\setbeamerfont*{subtitle}{parent=subtitle short} % 使用父标题
+
+%\setbeamerfont{normal text}{size*={8pt}{9pt}} % 14pt, baselineskip 18pt
+\setbeamerfont{footline}{size*={6pt}{7pt}} %页脚文字大小
+
+%\setbeamerfont{frametitle}{size*={16pt}{16pt},series=\bfseries} %30pt, baselineskip 36pt
+\setbeamerfont{framesubtitle}{size*={10pt}{11pt},series=\mdseries} % 普通页面,副标题的字体大小
+
+% 特殊文本域的字体设置
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{parent={structure,caption}}
+
+\setbeamerfont{date}{size*={10pt}{10pt}}
+
+\setbeamerfont{footline}{parent={tiny structure}}
+
+\setbeamerfont{headline}{parent={tiny structure}}
+
+\setbeamerfont{institute}{size=\footnotesize, series=\itshape}
+\setbeamerfont{navigation symbols}{size*={7pt}{8pt}}
+
+\setbeamerfont{section in toc}{parent=structure}
+\setbeamerfont{section in toc shaded}{parent=section in toc}
+
+% 列表
+\setbeamerfont{item}{parent=structure}
+\setbeamerfont{subitem}{parent=item}
+\setbeamerfont{subsubitem}{parent=subitem}
+
+\setbeamerfont{item projected}{size=\tiny, parent={item, projected text}}
+\setbeamerfont{subitem projected}{parent=item projected}
+\setbeamerfont{subsubitem projected}{parent=subitem projected}
+
+\setbeamerfont{description item}{parent=item}
+
+\setbeamerfont{enumerate item}{parent=item}
+\setbeamerfont{enumerate subitem}{parent=subitem}
+\setbeamerfont{enumerate subsubitem}{parent=subsubitem}
+
+\setbeamerfont{itemize/enumerate body}{}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+\setbeamerfont{itemize item}{parent=item}
+\setbeamerfont{itemize subitem}{parent=subitem}
+\setbeamerfont{itemize subsubitem}{parent=subsubitem}
+
+\makeatletter
+
+%% 字母间距
+\providecommand{\emptydummyb}[1]{} % eats argument of \uppercase() and and \addfontfeature{}
+\providecommand{\emptydummya}[2][]{#2}{} % eats optional argument of textls and forwards #2 argument
+\providecommand{\addfontfeature}[1]{} % defined only if latex or pdflatex is used
+\providecommand{\textls}[2][]{#2}{} % defined only if microtype is loaded
+
+% 定义的一些其他命令
+\def\beameroucslide@titleformat#1{#1}
+\def\beameroucslide@subtitleformat#1{#1}
+\def\beameroucslide@partformat#1{#1}
+\def\beameroucslide@frametitleformat#1{#1}
+
+%% 标题文字定义
+\pgfkeys{
+    /beameroucslide/font/title/.cd,
+    .is choice,
+    .default=regular,
+    regular/.code={%
+        \let\beameroucslide@titleformatcaps\emptydummya%
+        \let\beameroucslide@titleformatspacinga\emptydummya%
+        \let\beameroucslide@titleformatspacingb\emptydummyb%
+    },
+    allcaps/.code={%
+        \let\beameroucslide@titleformatcaps\MakeTextUppercase%
+        \let\beameroucslide@titleformatspacinga\emptydummya%
+        \let\beameroucslide@titleformatspacingb\emptydummyb%
+    },
+}
+
+%% 副标题文字定义
+\pgfkeys{
+    /beameroucslide/font/subtitle/.cd,
+    .is choice,
+    .default=allcaps,
+    regular/.code={%
+        \let\beameroucslide@subtitleformatcaps\emptydummya%
+        \let\beameroucslide@subtitleformatspacinga\emptydummya%
+        \let\beameroucslide@subtitleformatspacingb\emptydummyb%
+        \setbeamerfont{subtitle long}{size*={9pt}{11pt},series=\bfseries}  % 18pt, baselineskip 22pt
+    },
+    allcaps/.code={%
+        \let\beameroucslide@subtitleformatcaps\MakeTextUppercase%
+        \let\beameroucslide@subtitleformatspacinga\emptydummya%
+        \let\beameroucslide@subtitleformatspacingb\emptydummyb%
+        \setbeamerfont{title}{size*={16pt}{16pt},series=\bfseries} % 30pt, baselineskip 36pt%
+    },
+}
+
+%% 普通页面文字设置
+\pgfkeys{
+    /beameroucslide/font/frametitle/.cd,
+    .is choice,
+    .default=allcaps,
+    regular/.code={%
+        \let\beameroucslide@frametitleformatcaps\emptydummya%
+        \let\beameroucslide@frametitleformatspacinga\emptydummya%
+        \let\beameroucslide@frametitleformatspacingb\emptydummyb%
+        \setbeamerfont{frametitle}{size*={14pt}{18pt},series=\bfseries} % 32pt, baselineskip 36pt%
+    },
+    allcaps/.code={%
+        \let\beameroucslide@frametitleformatcaps\MakeTextUppercase%
+        \let\beameroucslide@frametitleformatspacinga\emptydummya%
+        \let\beameroucslide@frametitleformatspacingb\emptydummyb%
+        \setbeamerfont{frametitle}{size*={14pt}{18pt},series=\bfseries} % 32pt, baselineskip 36pt%
+    },
+}
+
+%% 段落文字设置
+\pgfkeys{
+    /beameroucslide/font/part/.cd,
+    .is choice,
+    .default=allcaps,
+    regular/.code={%
+        \let\beameroucslide@partformatcaps\emptydummya%
+        \let\beameroucslide@partformatspacinga\emptydummya%
+        \let\beameroucslide@partformatspacingb\emptydummyb%
+        \setbeamerfont{part}{size*={16pt}{18pt},series=\bfseries} % 30pt, baselineskip 36pt%
+    },
+    allcaps/.code={%
+        \let\beameroucslide@partformatcaps\MakeTextUppercase%
+        \let\beameroucslide@partformatspacinga\emptydummya%
+        \let\beameroucslide@partformatspacingb\emptydummyb%
+        \setbeamerfont{part}{size*={16pt}{18pt},series=\bfseries} % 30pt, baselineskip 36pt%
+    },
+}
+
+% redefine beamer title, subtitle, part and frametitle command
+\patchcmd{\beamer@title}%
+    {\def\inserttitle{#2}}%
+    {\protected\def\inserttitle{{\beameroucslide@titleformatspacingb{LetterSpace=15.0}\beameroucslide@titleformatcaps{\beameroucslide@titleformatspacinga[120]{#2}}}}}%
+    {}%
+    {\PackageError{beameroucslide}{Patching original title failed}\@ehc}
+\patchcmd{\beamer@subtitle}%
+    {\def\insertsubtitle{#2}}%
+    {\protected\def\insertsubtitle{{\beameroucslide@subtitleformatspacingb{LetterSpace=15.0}\beameroucslide@subtitleformatcaps{\beameroucslide@subtitleformatspacinga[120]{#2}}}}}%
+    {}%
+    {\PackageError{beameroucslide}{Patching original subtitle failed}\@ehc}
+\patchcmd{\beamer@part}%
+    {\def\insertpart{\expandafter\hyperlink\partlink}}%
+    {\def\insertpart{{\beameroucslide@partformatspacingb{LetterSpace=15.0}\beameroucslide@partformatcaps{\beameroucslide@partformatspacinga[120]{\expandafter\hyperlink\partlink}}}}}%
+    {}%
+    {\PackageError{beameroucslide}{Patching original part failed}\@ehc}
+\patchcmd{\beamer@@frametitle}
+    {{%
+        \gdef\insertframetitle{{#2\ifnum\beamer@autobreakcount>0\relax{}\space%
+        \usebeamertemplate*{frametitle continuation}\fi}}%
+        \gdef\beamer@frametitle{#2}%
+        \gdef\beamer@shortframetitle{#1}%
+    }}
+    {{%
+        \gdef\insertframetitle{{\beameroucslide@frametitleformatcaps{#2}\ifnum%
+        \beamer@autobreakcount>0\relax{}\space%
+        \usebeamertemplate*{frametitle continuation}\fi}}%
+        \gdef\beamer@frametitle{#2}%
+        \gdef\beamer@shortframetitle{#1}%
+    }}
+    {}
+    {\PackageError{beameroucslide}{Patching original frame title failed}\@ehc}
+\makeatother

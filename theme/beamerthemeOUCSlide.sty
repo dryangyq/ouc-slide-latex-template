@@ -1,0 +1,77 @@
+%!TEX program = xelatex
+
+%% 版本：1.0
+%% 2022-05-07
+%% 作者：杨永全
+%%本文件的主要目的，是为了定义幻灯片主题
+
+\RequirePackage{booktabs}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{fontspec}
+\RequirePackage{hyperref}
+\RequirePackage[utf8x]{inputenc}
+\RequirePackage{listings}
+\RequirePackage{tikz}
+
+\usetikzlibrary{
+    calc,
+    turtle,
+    positioning
+}
+%应用额外的主题文件
+\usefonttheme{OUCSlide}
+\usecolortheme{OUCSlide}
+\useinnertheme{OUCSlide}
+\useoutertheme{OUCSlide}
+
+\pgfkeys{/beameroucslide/.cd, 
+    .search also={
+        /beameroucslide/inner,
+        /beameroucslide/outer,
+        /beameroucslide/color,
+        /beameroucslide/font,
+    },
+    title=regular,
+    subtitle=regular,
+    part=regular,
+    frametitle=regular,
+}
+%设置元素编号
+\setbeamertemplate{caption}[numbered]
+
+%设置footnote在tcolorbox外面
+\makeatletter
+% restore footnote internals to those in normal page, not minipage
+\def\tcb@restore@footnote{%
+  \def\@mpfn{footnote}%
+  \def\thempfn{\arabic{footnote}}%
+  \let\@footnotetext\tcb@footnote@collect
+}
+
+% collect footnote text
+\long\def\tcb@footnote@collect#1{%
+  % expand \@thefnmark before appending before app to \tcb@footnote@acc
+  \expandafter\gappto\expandafter\tcb@footnote@acc\expandafter{%
+    \expandafter\footnotetext\expandafter[\@thefnmark]{#1}%
+  }%
+}
+
+\def\tcb@footnote@use{%
+  \tcb@footnote@acc
+  \global\let\tcb@footnote@acc\@empty
+}
+\global\let\tcb@footnote@acc\@empty
+
+
+\tcbset{
+  % restore for every box
+  every box/.style={
+    before upper pre=\tcb@restore@footnote
+  },
+  % use for layer 1 boxes only
+  every box on layer 1/.append style={
+    after app=\tcb@footnote@use
+  }
+}
+\makeatother
+%设置footnote在tcolorbox外面结束

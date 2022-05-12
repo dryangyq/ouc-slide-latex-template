@@ -1,0 +1,124 @@
+%% 版本：1.0
+%% 作者：杨永全
+%% 本文件的主要作用，是为了定义海大标准颜色
+%% 完成时间：2022-05-09
+
+\RequirePackage{xcolor}
+
+% OUC BLue 海大蓝 默认颜色
+\definecolor{oucblue}{RGB}{0, 64, 152}
+\colorlet{oucblue10}{oucblue!10!white}
+\colorlet{oucblue20}{oucblue!20!white}
+\colorlet{oucblue30}{oucblue!30!white}
+\colorlet{oucblue40}{oucblue!40!white}
+\colorlet{oucblue50}{oucblue!50!white}
+\colorlet{oucblue60}{oucblue!60!white}
+\colorlet{oucblue70}{oucblue!70!white}
+\colorlet{oucblue80}{oucblue!80!white}
+\colorlet{oucblue90}{oucblue!90!white}
+
+% OUC Light Blue 海大天蓝
+\definecolor{ouclightblue}{RGB}{0, 160, 233}
+\colorlet{ouclightblue10}{ouclightblue!10!white}
+\colorlet{ouclightblue20}{ouclightblue!20!white}
+\colorlet{ouclightblue30}{ouclightblue!30!white}
+\colorlet{ouclightblue40}{ouclightblue!40!white}
+\colorlet{ouclightblue50}{ouclightblue!50!white}
+\colorlet{ouclightblue60}{ouclightblue!60!white}
+\colorlet{ouclightblue70}{ouclightblue!70!white}
+\colorlet{ouclightblue80}{ouclightblue!80!white}
+\colorlet{ouclightblue90}{ouclightblue!90!white}
+
+% OUC Red 海大红
+\definecolor{oucred}{RGB}{200, 21, 40}
+\colorlet{oucred10}{oucred!10!white}
+\colorlet{oucred20}{oucred!20!white}
+\colorlet{oucred30}{oucred!30!white}
+\colorlet{oucred40}{oucred!40!white}
+\colorlet{oucred50}{oucred!50!white}
+\colorlet{oucred60}{oucred!60!white}
+\colorlet{oucred70}{oucred!70!white}
+\colorlet{oucred80}{oucred!80!white}
+\colorlet{oucred90}{oucred!90!white}
+
+%OUC Cherry 樱缤粉
+\definecolor{ouccherry}{RGB}{249, 210, 212}
+\colorlet{ouccherry10}{ouccherry!10!white}
+\colorlet{ouccherry20}{ouccherry!20!white}
+\colorlet{ouccherry30}{ouccherry!30!white}
+\colorlet{ouccherry40}{ouccherry!40!white}
+\colorlet{ouccherry50}{ouccherry!50!white}
+\colorlet{ouccherry60}{ouccherry!60!white}
+\colorlet{ouccherry70}{ouccherry!70!white}
+\colorlet{ouccherry80}{ouccherry!80!white}
+\colorlet{ouccherry90}{ouccherry!90!white}
+
+%OUC Brown 文脉棕
+\definecolor{oucbrown}{RGB}{121, 79, 47}
+\colorlet{oucbrown10}{oucbrown!10!white}
+\colorlet{oucbrown20}{oucbrown!20!white}
+\colorlet{oucbrown30}{oucbrown!30!white}
+\colorlet{oucbrown40}{oucbrown!40!white}
+\colorlet{oucbrown50}{oucbrown!50!white}
+\colorlet{oucbrown60}{oucbrown!60!white}
+\colorlet{oucbrown70}{oucbrown!70!white}
+\colorlet{oucbrown80}{oucbrown!80!white}
+\colorlet{oucbrown90}{oucbrown!90!white}
+
+%OUC Golden 专金
+\definecolor{oucgolden}{RGB}{204, 173, 105}
+\colorlet{oucgolden10}{oucgolden!10!white}
+\colorlet{oucgolden20}{oucgolden!20!white}
+\colorlet{oucgolden30}{oucgolden!30!white}
+\colorlet{oucgolden40}{oucgolden!40!white}
+\colorlet{oucgolden50}{oucgolden!50!white}
+\colorlet{oucgolden60}{oucgolden!60!white}
+\colorlet{oucgolden70}{oucgolden!70!white}
+\colorlet{oucgolden80}{oucgolden!80!white}
+\colorlet{oucgolden90}{oucgolden!90!white}
+
+% OUC Silver 专银
+\definecolor{oucsilver}{RGB}{207, 208, 208}
+\colorlet{oucsilver10}{oucsilver!10!white}
+\colorlet{oucsilver20}{oucsilver!20!white}
+\colorlet{oucsilver30}{oucsilver!30!white}
+\colorlet{oucsilver40}{oucsilver!40!white}
+\colorlet{oucsilver50}{oucsilver!50!white}
+\colorlet{oucsilver60}{oucsilver!60!white}
+\colorlet{oucsilver70}{oucsilver!70!white}
+\colorlet{oucsilver80}{oucsilver!80!white}
+\colorlet{oucsilver90}{oucsilver!90!white}
+
+%代码注释的颜色
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+\mode<presentation>
+
+% 定义元素基本颜色
+\setbeamercolor{structure}{fg=oucblue, bg=}%主颜色。如果没有其他定义，则显示此颜色。
+\setbeamercolor{palette primary}{use=structure, fg=oucblue, bg=}
+
+\setbeamercolor{item}{fg=oucblue70}%item的颜色，是70%的海大蓝。
+\setbeamercolor{item projected}{fg=oucblue70}
+
+\setbeamercolor{enumerate item}{fg=black, bg=}
+\setbeamercolor{enumerate subitem}{fg=black, bg=}
+\setbeamercolor{enumerate subsubitem}{fg=black, bg=}
+
+%默认的标题、副标题、作者、单位、日期，都是白色
+\setbeamercolor{title}{fg=white,bg=}
+\setbeamercolor{subtitle}{fg=white,bg=}
+\setbeamercolor{author}{fg=white,bg=}
+\setbeamercolor{date}{fg=white,bg=}
+
+%默认的block，颜色是海大蓝
+\setbeamercolor{block title}{bg=oucblue,fg=white}
+\setbeamercolor{block body}{bg=oucblue10}
+
+%example block的颜色，是海大灰
+\setbeamercolor{block title example}{bg=oucsilver,fg=white}
+\setbeamercolor{block body example}{bg=oucsilver10}
+
+%提示block，用的是海大红
+\setbeamercolor{block title alerted}{bg=oucred,fg=white}
+\setbeamercolor{block body alerted}{bg=oucred10}

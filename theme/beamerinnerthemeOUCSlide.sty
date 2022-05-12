@@ -1,0 +1,132 @@
+%% 版本:1.0
+%% 作者：杨永全
+%% 本文件的主要目的，是为了定义列表等内部元素的样式
+%% 完成时间：2022-05-09
+
+\RequirePackage{listings,verbatim}%引入代码包
+\usepackage{tcolorbox} %引入彩色框
+\tcbuselibrary{most} %引入所有包
+
+%列表样式，使用了fontawesome图标
+\setbeamertemplate{itemize item}{\faBookmark}
+\setbeamertemplate{itemize subitem}{\faHandORight}
+\setbeamertemplate{itemize subsubitem}{\faSquare}
+
+%超链接的颜色等信息
+\hypersetup{
+    %colorlinks=true, %超链接颜色，全部使用海大红。
+    linkcolor=oucred,
+    urlcolor=oucred,
+    citecolor=oucred,
+    anchorcolor=oucred,
+}
+
+%代码块的一些设定
+\renewcommand{\ttdefault}{pcr}
+\lstset{
+    frame=shadowbox,
+    numbers=left, 
+    numberstyle=\small,
+    basicstyle=\ttfamily\upshape\small,
+    breaklines=true,
+    backgroundcolor=\color{oucsilver10},
+    xleftmargin=0.8cm,
+    framexleftmargin=0em,
+    keywordstyle=\bfseries\color{oucblue},
+    stringstyle=\color{oucblue},
+    commentstyle=\color{mygreen},
+    rulesepcolor= \color{oucsilver40},
+    rulecolor=\color{oucblue},
+    deletekeywords={compile},
+    escapechar=\&,
+    escapeinside={<@}{@>}
+}
+
+%% 代码块标题设定
+\RequirePackage{caption}
+\DeclareCaptionFormat{codecaptionformat}{%
+  \parbox{\textwidth}{\hspace{2em}\textcolor{violet}\faCode~\textcolor{violet}{#1#2}\hspace{.5em}#3}%代码块caption的设置
+}
+\captionsetup[lstlisting]{format=codecaptionformat}
+
+%设置信息框titlebox
+\newtcolorbox{titlebox}[2][]
+{
+    title=#1, %标题
+    colback = white, %标题背景是白色
+    colframe = #2, %边框颜色
+    coltitle = #2, %标题颜色
+    boxrule=.5pt,%边框的粗细，细一点感觉更精致
+    boxed title style={size=normal,colframe=white,boxrule=0pt},%标题栏没有背景色和边框，只有文字
+    left=5pt, right=5pt, top=5pt, bottom=0pt,%内部文字边距
+    boxsep=5pt,
+    colbacktitle = white, enhanced,%标题的背景，白色
+    attach boxed title to top center={yshift=-4mm},%把标题放在中间
+    opacityupper={100}, %上面边框透明度
+}
+%设置笔记提示框
+\newtcolorbox{notebox}[1][]
+{
+    enhanced,
+    arc=2pt,%圆角
+    boxrule=.5pt,%边框
+    left=5pt, right=5pt, top=0pt, bottom=0pt,%文字边距
+    boxsep=5pt,
+    colframe=oucblue,
+    colback=oucblue10,
+    colbacktitle=oucblue10,
+    coltext=oucblue,
+    title={\textcolor{oucblue}{\faStickyNoteO\hspace{.5em}\bfseries{\textbf{#1}}}},
+    halign=left,
+}
+%设置重要提示框
+\newtcolorbox{importantbox}[1][]
+{
+    enhanced,
+    arc=2pt,
+    boxrule=.5pt,
+    left=5pt, right=5pt, top=0pt, bottom=0pt,
+    boxsep=5pt,
+    colframe=oucred,
+    colback=oucred10,
+    colbacktitle=oucred10,
+    coltext=oucred,
+    title={\textcolor{oucred}{\faExclamationCircle\hspace{.5em}\bfseries{\textbf{#1}}}},
+    halign=left,
+}
+%列表框
+\newtcolorbox{vcolorbox}[2][]
+{
+    boxrule=0.1pt,%边框，很细
+    arc=0pt,outer arc=0pt,%不要圆角
+    left=5pt, right=5pt, top=0pt, bottom=0pt,
+    leftrule=5pt, %左侧边框的宽度 
+    colframe=#2,%边框的颜色
+    colback=white,
+    colbacktitle=white,
+    coltext=black,%内部文字的颜色，如果要和标题保持一致，可改为#2
+    title={\textcolor{#2}{\bfseries{\textbf{#1}}}},%标题样式
+    halign=left,
+}
+
+%要点框
+\newtcolorbox{pointbox}[3][]
+{
+    colback = white, %背景是白色
+    boxrule=0.5pt,%边框的粗细，细一点感觉更精致
+    colframe = #2, %边框颜色
+    fonttitle = \bfseries,%标题加粗
+    colbacktitle = #2, enhanced,
+    left=2pt, right=2pt, top=5pt, bottom=0pt,%内部文字边距
+    attach boxed title to top center={yshift=-2mm},
+    width=\textwidth,
+    height=#3,
+    title=#1
+}
+
+
+%一些元素的中文名称
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\lstlistingname}{代码}
+\renewcommand{\abstractname}{摘要}

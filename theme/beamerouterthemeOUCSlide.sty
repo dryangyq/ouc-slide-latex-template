@@ -1,0 +1,254 @@
+%% 版本：1.0
+%% 作者：杨永全
+%% 本文件的主要作用是定义主题的框架结构等模板信息
+%% 完成时间：2022-05-09
+
+\usepackage{dashrule}
+
+
+% 页面整体布局
+\setbeamersize{%
+    text margin left=0.8cm,
+    text margin right=0.8cm
+}
+
+%% 首页标题背景
+\defbeamertemplate{background canvas}{title}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{logos/background.jpg}
+}
+
+%% 首页页面顶部元素
+\newcommand{\topslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none, rounded corners=2pt] (current page.north east)
+        [turtle={
+            lt, forward=1.1\paperwidth, 
+            lt, forward=.19\paperheight, 
+            lt, forward=.47\paperwidth, 
+            left=45, forward=1.5ex,
+            right=45, forward=.63\paperwidth, 
+            home
+        }];
+    \end{tikzpicture}
+}
+
+%首页顶栏logo
+\newcommand{\banner}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=north west, xshift=0.8cm, yshift=-0.6cm] at (current page.north west) {
+            \includegraphics[scale=0.02]{logos/ouc_logo.png}
+        };
+    \end{tikzpicture}
+}
+
+%% 底部有弧度的页脚部分
+\newcommand{\bottomslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none, rounded corners=2pt] (current page.south east)
+        [turtle={
+            lt, fd=1.1\paperwidth, 
+            rt, fd=0.03\paperheight, 
+            rt, fd=.8375\paperwidth, 
+            lt=45, fd=1.5ex, 
+            rt=45, fd=.25\paperwidth, 
+            home
+        }];
+    \end{tikzpicture}
+}
+
+%首页右下角网址
+\newcommand{\oucurl}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=south east, text=oucblue] at (current page.south east) {\tiny www.ouc.edu.cn};
+    \end{tikzpicture}
+}
+
+%% 首页背景元素
+\defbeamertemplate{background}{title}{%
+    \topslider{white}
+    \banner %首页的Logo
+    \bottomslider{white} %首页底部颜色
+    \oucurl %首页底部网址
+}
+
+%首页正文部分
+\defbeamertemplate{title page}{text}{%
+    \begin{center} %所有文字居中
+    \vspace{2.5cm} %标题距离banner的距离
+    \usebeamercolor[white]{title}\usebeamerfont*{title}\strut{}\inserttitle\par%字体颜色为白色
+    \vspace{0.5cm}%副标题到主标题的距离
+    \usebeamercolor[white]{subtitle}\usebeamerfont{subtitle}\strut{}\insertsubtitle\par%字体为白色
+    \vspace{1.6cm}%作者到副标题的距离
+    \usebeamercolor[white]{title}\usebeamerfont*{author}\insertauthor\par%字体为白色
+    \vspace{0.3cm}%作者单位到作者的距离
+    \usebeamercolor[white]{title}\usebeamerfont*{institute}\insertinstitute%\enspace/字体为白色%\enspace
+    %\insertdate%如有必要，可再插入日期
+    \end{center}
+}
+\setbeamertemplate{title page}[text]
+\pgfkeys{/beameroucslide/outer/.cd,
+    footline/.initial=empty,
+    navigation symbols/.initial=empty,
+    title page/.initial=text
+}
+
+
+%% 普通页面背景
+\defbeamertemplate{background canvas}{empty}{}
+\pgfkeys{/beamerhgf/outer/.cd,
+    background canvas/.initial=empty
+}
+
+%普通页面左下角信息
+\setbeamertemplate{footline}{%
+    \hspace{0.8cm}
+    \usebeamercolor[fg]{title}\insertauthor\enspace\vrule width0.3pt\enspace\inserttitle%左下角作者信息和标题信息
+    \vspace{0.04cm} %页脚到底部的距离
+}
+
+% 普通页面右下角Logo
+\newcommand{\footerlogo}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=south east, xshift=-1.8cm, yshift=-0.1cm] at (current page.south east) {
+            \includegraphics[scale=0.008]{logos/ouc_logo_bottom.png}
+        };
+    \end{tikzpicture}
+}
+
+%右下角页码导航
+\setbeamertemplate{navigation symbols}{%
+    \vspace{-6pt}
+    \usebeamercolor[fg]{title}\usebeamerfont*{navigation symbols}\insertframenumber/\inserttotalframenumber
+}
+
+%% 普通页面frame背景
+\defbeamertemplate{background}{frame}{%框架
+    \bottomslider{oucblue} %底部颜色为海大蓝
+    \footerlogo %右下角logo
+}
+
+%% 空页面的标题为空
+\defbeamertemplate{headline}{empty}{
+
+}%默认标题为空
+
+%普通页面标题设置
+\defbeamertemplate{frametitle}{frame}{%
+    \vspace{10pt}%
+    % \usebeamercolor[oucred]{frametitle}\usebeamerfont{sectiontitle}
+    % \thesection.\insertsection 
+    \usebeamercolor[oucblue]{frametitle}\usebeamerfont{frametitle}
+    \thesubsection. \insertsubsection%显示二级标题
+    %\insertframetitle
+    %\thesection.\insertsection:\insertframetitle
+    \ifx\insertsubsubsection\empty%如果没有三级标题什么都不做
+        
+    \else
+        \usebeamercolor[ouclightblue]{framesubtitle}\usebeamerfont{framesubtitle}
+        %\insertframesubtitle
+        \thesubsubsection.\insertsubsubsection
+    \fi
+    
+    \vspace{0.5pt}%标题到下面的线之间的距离
+    {\color{oucblue}\hrule height 1.5pt depth 0pt}%标题下面的线
+    % \ifx\insertframesubtitle\empty%如果副标题为空
+    %     \vspace{12pt}%
+    %     %\strut{}
+    %     \insertframetitle %插入标题
+    % \else%
+    %     \insertframetitle\par%
+    %     \usebeamercolor[ouclightblue]{framesubtitle}\usebeamerfont{framesubtitle}%\strut{}
+    %     \insertframesubtitle%子标题的颜色，使用ouc light blue 海大标准色
+    % \fi%
+    % \par%
+    % \vspace{0.5pt}%标题到下面的线之间的距离
+    % {\color{oucblue}\hrule height 1.5pt depth 0pt}%标题下面的线
+}
+
+%因为在frame中引入了section，所以要为目录页面单独设置一个frametitle的模板，去掉了section信息
+\defbeamertemplate{frametitle}{outlineframe}{
+    \vspace{12pt}%
+    \usebeamercolor[oucblue]{frametitle}\usebeamerfont{frametitle}
+    \insertframetitle
+    \usebeamercolor[ouclightblue]{framesubtitle}\usebeamerfont{framesubtitle}
+    \insertframesubtitle
+    \vspace{0.5pt}%标题到下面的线之间的距离
+    {\color{oucblue}\hrule height 1.5pt depth 0pt}%标题下面的线
+}
+
+%设置模板
+\setbeamertemplate{background}[frame]
+\setbeamertemplate{frametitle}[frame]
+
+% 定义首页生成命令
+\def\maketitle{%
+{%
+    \setbeamertemplate{footline}{} 
+    \setbeamertemplate{navigation symbols}{} 
+    \ifbeamer@inframe%
+        \titlepage%首页页面
+    \else%
+        \setbeamertemplate{frame number}[invisible]%
+        \setbeamertemplate{date}[invisible]%
+        \setbeamertemplate{background canvas}[title]%
+        \setbeamertemplate{background}[title]%
+        \setbeamertemplate{title page}[title]%
+        \frame[t, noframenumbering]{\titlepage}%
+    \fi%
+}%
+    % 将普通的页面背景改回去
+    \setbeamertemplate{background canvas}[empty]
+}
+
+%定义目录页生成命令
+\def\makeoutline{
+    {
+        \setbeamertemplate{frametitle}[outlineframe]
+        \begin{frame}
+            \frametitle{目录}
+            \tableofcontents[hideallsubsections]
+        \end{frame}
+        
+    }
+    \setbeamertemplate{frametitle}[frame]%再把模板改回去
+}
+
+%定义最后一页生成命令
+\def\makelast{
+    \setbeamertemplate{background}[title]
+    \setbeamertemplate{background canvas}[title]%
+    \setbeamertemplate{frame number}[invisible]%
+    \setbeamertemplate{footline}{} 
+    \setbeamertemplate{navigation symbols}{} 
+    \begin{frame}
+        \begin{center} %所有文字居中
+            \vspace{3.5cm}
+            \huge\textcolor{white}{\textbf{\last}}%
+        \end{center}
+    \end{frame}
+}
+
+% 分节页面
+\AtBeginSection[]{
+    \begin{frame}%
+        \begin{center} %所有文字居中
+        \vspace{2.5cm}%
+        %\hspace{0.3cm}%
+        \huge\textcolor{oucred}{\textbf{\thesection.\insertsectionhead}}%
+        \end{center}
+    \end{frame}%
+}
+
+%目录的模板
+% \setbeamertemplate{section in toc}{%
+%     \begin{tcolorbox}[arc=0pt,boxrule=.5pt,colframe=oucblue,colback=white,coltext=oucred]
+%         \inserttocsectionnumber.~\inserttocsection 
+%     \end{tcolorbox}
+% }
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamercolor{section in toc}{bg=white,fg=oucred}
+
+%设置有代码块的frame
+\newenvironment{fragileframe}%
+  {\begin{frame}[fragile,environment=fragileframe]}%
+  {\end{frame}}
