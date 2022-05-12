@@ -4,6 +4,7 @@
 %% 完成时间：2022-05-09
 
 \RequirePackage{listings,verbatim}%引入代码包
+\RequirePackage{caption}
 \usepackage{tcolorbox} %引入彩色框
 \tcbuselibrary{most} %引入所有包
 
@@ -43,7 +44,6 @@
 }
 
 %% 代码块标题设定
-\RequirePackage{caption}
 \DeclareCaptionFormat{codecaptionformat}{%
   \parbox{\textwidth}{\hspace{2em}\textcolor{violet}\faCode~\textcolor{violet}{#1#2}\hspace{.5em}#3}%代码块caption的设置
 }
@@ -122,6 +122,25 @@
     width=\textwidth,
     height=#3,
     title=#1
+}
+
+%文本框textbox
+\newtcolorbox{textbox}[1]{
+    colback=#1!5!white,
+    colframe=#1,
+    boxrule=0.5pt,
+    arc=2pt,
+}
+
+%标题框headbox
+\newtcolorbox{headbox}[1]{
+    colback=#1,
+    colframe=#1,
+    boxrule=0.5pt,
+    arc=2pt,
+    coltext=white,
+    fontupper= \bfseries,
+    left=0pt, right=0pt, top=0pt, bottom=0pt,%内部文字边距
 }
 
 

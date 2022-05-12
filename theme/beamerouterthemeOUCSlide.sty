@@ -75,7 +75,7 @@
 \defbeamertemplate{title page}{text}{%
     \begin{center} %所有文字居中
     \vspace{2.5cm} %标题距离banner的距离
-    \usebeamercolor[white]{title}\usebeamerfont*{title}\strut{}\inserttitle\par%字体颜色为白色
+    \usebeamercolor[white]{title}\usebeamerfont*{title}\strut{}\texorpdfstring{\inserttitle}\par%字体颜色为白色
     \vspace{0.5cm}%副标题到主标题的距离
     \usebeamercolor[white]{subtitle}\usebeamerfont{subtitle}\strut{}\insertsubtitle\par%字体为白色
     \vspace{1.6cm}%作者到副标题的距离
@@ -102,7 +102,7 @@
 %普通页面左下角信息
 \setbeamertemplate{footline}{%
     \hspace{0.8cm}
-    \usebeamercolor[fg]{title}\insertauthor\enspace\vrule width0.3pt\enspace\inserttitle%左下角作者信息和标题信息
+    \usebeamercolor[fg]{title}\insertauthor\enspace\vrule width0.3pt\enspace\texorpdfstring{\inserttitle}%左下角作者信息和标题信息
     \vspace{0.04cm} %页脚到底部的距离
 }
 
