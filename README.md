@@ -32,6 +32,24 @@
 4. 编译时，请选择XeLaTex，有时候，可能需要连续编译两次，以得到正确的页码和图表编号。
 
 # 元素介绍
+## 基本信息
+Tex文件的开头，是基本信息部分，可以根据需要添加`\title`{标题}、`\subtitle`{子标题}、`\author`{作者}、`\date`{\today}、`\institute`{所属机构}。
+
+`\newcommand{\last}{敬请批评指正！}` 的作用是为了制作最后一页致谢页面而单独设置的，可以修改为任何致谢语句。
+
+## 特殊页面
+
+模板中有三个特殊的页面，分别是：标题页（首页）、目录页和结尾页。这三个页面由于其特殊性，不能使用frame的常规模板，因此，为它们创建了三个命令进行生成：
+
+```
+\maketitle
+\makeoutline
+\makelast
+```
+使用者三个命令后，将会自动创建首页、目录页和结尾页。
+
+首页和结尾页，使用的是基本信息中的数据，而目录页的内容，将根据`\section`进行填充。
+
 ## 使用分节
 
 本模板使用分节进行整体规划，章节共三级，对应的关键字分别是：
@@ -40,8 +58,76 @@
 \subsection
 \subsubsection
 ```
-其中，\section会有单独的页面进行显示。如下图所示。而且，section将会出现在目录页面中。
+其中，`\section` 会有单独的页面进行显示。如下图所示。而且，section还将会出现在目录页面中。
 ![section](/figs/fig01.png )
-\subsection 和 \subsubsection都没有单独的页面想对应，他们会出现在对应章节的frame中，作为标题进行呈现，并且加入了自动编号的效果。需要说明的是，\subsection是必须的，而 \subsubsection 却可有可无。他们呈现出的最终的效果，如下图所示。
+`\subsection` 和 `\subsubsection`都没有单独的页面想对应，他们会出现在对应章节的frame中，作为标题进行呈现，并且加入了自动编号的效果。需要说明的是，`\subsection`是必须的，而 `\subsubsection` 却可有可无。他们呈现出的最终的效果，如下图所示。
 ![subsection](/figs/fig02.png)
-需要注意的是，虽然frame的标题，是由subsection和subsubsection自动生成的，但是frame中的frametitle仍然是必须的，否则没有frametitle这个元素，标题无法自动填充。
+**需要注意的是，虽然frame的标题，是由subsection和subsubsection自动生成的，但是frame中的frametitle仍然是必须的，否则没有frametitle这个元素，标题无法自动填充。**
+
+## 使用Frame
+章节确定好后，就可以增加Frame来编写幻灯片。使用代码:
+```
+\begin{frame}
+    \frametitle{测试}
+\end{frame}
+```
+就可以插入一张幻灯片。
+
+需要注意的是：如果幻灯片中使用了代码块，则需要加入关键字`fragile`。这样，引入的代码才能保持它们原有的样子，入下所示：
+```
+\begin{frame}[fragile]
+    \frametitle{测试}
+\end{frame}
+```
+当然，也可以使用定义的特殊的frame模板来达到这种效果。
+```
+\begin{fragileframe}
+    \frametitle{测试}
+\end{fragileframe}
+```
+他们的效果是一样的。
+
+## 字体
+模板使用的默认字体是[华为鸿蒙字体 (HarmonyOS Sans) ](https://developer.harmonyos.com/cn/docs/design/font-0000001157868583)。该字体可以免费商用。
+
+如果对字体不满意，可下载其他字体，放入fonts文件夹，并在`beamerfontthemeOUCSlide.sty`文件中修改。
+
+推荐的字体包括:[思源黑体](https://github.com/adobe-fonts/source-han-sans)、[阿里普惠字体](https://alibabafont.taobao.com/wow/alibabafont/act/alifont)、[OPPO字体](https://www.thosefree.com/oppo-sans)、[小米字体](https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854)。这些字体基本上都可以免费商用，并且效果都很不错。
+
+## 颜色
+根据海大公布的标准颜色，定义了相关颜色，主要包括海大蓝、海大天蓝、海大红、樱缤粉、文脉棕、专金、专银。其中文名称和代码如下表所示。
+
+当然，也可以使用Latex自带的颜色，例如white、black等。
+| 名称  | 中文名 |
+|--------------|--------------|
+| oucblue      | 海大蓝          |
+| ouclightblue | 海大天蓝         |
+| oucred       | 海大红          |
+| ouccherry    | 樱缤粉          |
+| oucbrown     | 文脉棕          |
+| oucgolden    | 专金           |
+| oucsilver    | 专银           |
+
+## 颜色等级
+为了显示更丰富的色彩，定义的海大标准色，每一种颜色，都有十个等级，等级越低，颜色越浅。例如：对于海大蓝，其等级颜色从oucblue90-oucblue10不等，分成10个等级。
+
+## 信息框
+信息框使用边框的形式，提升幻灯片的表现力。
+
+主要的信息框包括：列表框(`vcolorbox`)、提示框(`notebox`、`importantbox`)、信息框(`titlebox`)、要点框(`pointbox`)和块(`block`、`exampleblock`、`alertblock`)。它们的效果，入下图所示。
+
+![列表框](/figs/fig03.png)
+![提示框](/figs/fig04.png)
+![信息框](/figs/fig05.png)
+![要点框](/figs/fig06.png)
+![块](/figs/fig07.png)
+
+## 代码
+
+模板可以插入代码块，使用`lstlisting`即可。
+
+## 公式
+模板中可以直接插入公式，和LaTex中没有什么区别。
+
+## 脚注
+可以在任何地方使用脚注。即便是在各种信息框中也可以。
