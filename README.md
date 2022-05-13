@@ -2,7 +2,7 @@
 
 中国海洋大学演示文稿Latex非官方模板。
 
-本模板修改自[HelmholtzAI](https://github.com/Helmholtz-AI-Energy/beamer-template){target="_blank"}模板。在原有模板基础上进行了大量修改。
+本模板修改自[HelmholtzAI](https://github.com/Helmholtz-AI-Energy/beamer-template){:target="_blank"}模板。在原有模板基础上进行了大量修改。
 
 模板主要使用海大公布的标准色，包括海大蓝、海大天蓝、海大红、樱缤粉、文脉棕、专金、专银。
 
