@@ -114,13 +114,14 @@ Tex文件的开头，是基本信息部分，可以根据需要添加`\title`{�
 ## 信息框
 信息框使用边框的形式，提升幻灯片的表现力。
 
-主要的信息框包括：列表框(`vcolorbox`)、提示框(`notebox`、`importantbox`)、信息框(`titlebox`)、要点框(`pointbox`)和块(`block`、`exampleblock`、`alertblock`)。它们的效果，入下图所示。
+主要的信息框包括：列表框(`vcolorbox`)、提示框(`notebox`、`importantbox`)、信息框(`titlebox`)、要点框(`pointbox`)、块(`block`、`exampleblock`、`alertblock`)、标题框(`headbox`)和文本框(`textbox`)。它们的效果，如下图所示。
 
 ![列表框](/figs/fig03.png)
 ![提示框](/figs/fig04.png)
 ![信息框](/figs/fig05.png)
 ![要点框](/figs/fig06.png)
 ![块](/figs/fig07.png)
+![标题框和文本框](/figs/fig08.png)
 
 ## 代码
 
