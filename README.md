@@ -2,7 +2,7 @@
 
 中国海洋大学演示文稿Latex非官方模板。
 
-本模板修改自[HelmholtzAI](https://github.com/Helmholtz-AI-Energy/beamer-template){:target="_blank"}模板。在原有模板基础上进行了大量修改。
+本模板修改自<a href="https://github.com/Helmholtz-AI-Energy/beamer-template" target="_blank">HelmholtzAI</a>模板。在原有模板基础上进行了大量修改。
 
 模板主要使用海大公布的标准色，包括海大蓝、海大天蓝、海大红、樱缤粉、文脉棕、专金、专银。
 
@@ -26,9 +26,9 @@
 7. fontawesome.pdf：图标使用说明文件。
 
 # 使用方法
-1. 从git上clone项目到本地。目前，共有3个git库供选择，分别是：[Github](https://github.com/dryangyq/ouc-slide-latex-template.git)、[Gitee](https://gitee.com/dryangyq/ouc-slide-latex-template.git)和[Gitlab](https://gitlab.com/dryangyq/ouc-slide-latex-template.git)。这三个库都和[源库](https://git.yangyq.net/laoyang/ouc-slide-latex-template.git)保持一致和同步，从理论上来讲，使用任何一个库都可以。
-2. 安装Tex编译器，推荐使用[TexLive](https://tug.org/texlive/)，安装成功后，可以使用自带的TeXworks打开目录下的tex文件进行编译。
-3. 可以安装其他的IDE工具进行Tex文件的编写和修改，推荐使用[Visual Studio Code](https://code.visualstudio.com/)。
+1. 从git上clone项目到本地。目前，共有3个git库供选择，分别是：<a href="https://github.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Github</a>、<a href="https://gitee.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Gitee</a>和<a href="https://gitlab.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Gitlab</a>。这三个库都和<a href="https://git.yangyq.net/laoyang/ouc-slide-latex-template.git" target="_blank">源库</a>保持一致和同步，从理论上来讲，使用任何一个库都可以。
+2. 安装Tex编译器，推荐使用<a href="https://tug.org/texlive/" target="_blank">TexLive</a>，安装成功后，可以使用自带的TeXworks打开目录下的tex文件进行编译。
+3. 可以安装其他的IDE工具进行Tex文件的编写和修改，推荐使用<a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>。
 4. 编译时，请选择XeLaTex，有时候，可能需要连续编译两次，以得到正确的页码和图表编号。
 
 # 元素介绍
@@ -88,11 +88,11 @@ Tex文件的开头，是基本信息部分，可以根据需要添加`\title`{�
 他们的效果是一样的。
 
 ## 字体
-模板使用的默认字体是[华为鸿蒙字体 (HarmonyOS Sans) ](https://developer.harmonyos.com/cn/docs/design/font-0000001157868583)。该字体可以免费商用。
+模板使用的默认字体是<a href="https://developer.harmonyos.com/cn/docs/design/font-0000001157868583" target="_blank">华为鸿蒙字体 (HarmonyOS Sans)</a>。该字体可以免费商用。
 
 如果对字体不满意，可下载其他字体，放入fonts文件夹，并在`beamerfontthemeOUCSlide.sty`文件中修改。
 
-推荐的字体包括:[思源黑体](https://github.com/adobe-fonts/source-han-sans)、[阿里普惠字体](https://alibabafont.taobao.com/wow/alibabafont/act/alifont)、[OPPO字体](https://www.thosefree.com/oppo-sans)、[小米字体](https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854)。这些字体基本上都可以免费商用，并且效果都很不错。
+推荐的字体包括:<a href="https://github.com/adobe-fonts/source-han-sans" target="_blank">思源黑体</a>、<a href="https://alibabafont.taobao.com/wow/alibabafont/act/alifont" target="_blank">阿里普惠字体</a>、<a href="https://www.thosefree.com/oppo-sans" target="_blank">OPPO字体</a>、<a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854" target="_blank">小米字体</a>。这些字体基本上都可以免费商用，并且效果都很不错。
 
 ## 颜色
 根据海大公布的标准颜色，定义了相关颜色，主要包括海大蓝、海大天蓝、海大红、樱缤粉、文脉棕、专金、专银。其中文名称和代码如下表所示。
