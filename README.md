@@ -73,7 +73,7 @@ Tex文件的开头，是基本信息部分，可以根据需要添加`\title`{�
 ```
 就可以插入一张幻灯片。
 
-需要注意的是：如果幻灯片中使用了代码块，则需要加入关键字`fragile`。这样，引入的代码才能保持它们原有的样子，入下所示：
+需要注意的是：如果幻灯片中使用了代码块，则需要加入关键字`fragile`。这样，引入的代码才能保持它们原有的样子，如下所示：
 ```
 \begin{frame}[fragile]
     \frametitle{测试}
@@ -92,7 +92,7 @@ Tex文件的开头，是基本信息部分，可以根据需要添加`\title`{�
 
 如果对字体不满意，可下载其他字体，放入fonts文件夹，并在`beamerfontthemeOUCSlide.sty`文件中修改。
 
-推荐的字体包括:<a href="https://github.com/adobe-fonts/source-han-sans" target="_blank">思源黑体</a>、<a href="https://alibabafont.taobao.com/wow/alibabafont/act/alifont" target="_blank">阿里普惠字体</a>、<a href="https://www.thosefree.com/oppo-sans" target="_blank">OPPO字体</a>、<a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854" target="_blank">小米字体</a>。这些字体基本上都可以免费商用，并且效果都很不错。
+推荐的字体包括:<a href="https://github.com/adobe-fonts/source-han-sans" target="_blank">思源黑体</a>、<a href="https://alibabafont.taobao.com/wow/alibabafont/act/alifont" target="_blank">阿里普惠字体</a>、<a href="https://www.thosefree.com/oppo-sans" target="_blank">OPPO字体</a>、<a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854" target="_blank">小米字体</a>。这些字体基本上都可以免费商用，并且效果都很不错。关于他们是否能够继续免费商用的政策，请查阅其官方网站以得到最准确的信息。
 
 ## 颜色
 根据海大公布的标准颜色，定义了相关颜色，主要包括海大蓝、海大天蓝、海大红、樱缤粉、文脉棕、专金、专银。其中文名称和代码如下表所示。
