@@ -1,6 +1,6 @@
-# 中国海洋大学演示文稿Latex模板
+# 中国海洋大学幻灯片Latex模板
 
-中国海洋大学演示文稿Latex非官方模板。
+中国海洋大学幻灯片Latex非官方模板。
 
 本模板修改自<a href="https://github.com/Helmholtz-AI-Energy/beamer-template" target="_blank">HelmholtzAI</a>模板。在原有模板基础上进行了大量修改。
 
@@ -26,7 +26,7 @@
 7. fontawesome.pdf：图标使用说明文件。
 
 # 使用方法
-1. 从git上clone项目到本地。目前，共有3个git库供选择，分别是：<a href="https://github.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Github</a>、<a href="https://gitee.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Gitee</a>、<a href="https://gitlab.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Gitlab</a>、<a href="https://code.aliyun.com/dryangyq/ouc-slide-latex-template.git">阿里云Code</a>。这些库都和<a href="https://git.yangyq.net/laoyang/ouc-slide-latex-template.git" target="_blank">源库</a>保持一致和同步，从理论上来讲，使用任何一个库都可以。
+1. 从git上clone项目到本地。目前，共有多个git库供选择，分别是：<a href="https://github.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Github</a>、<a href="https://gitee.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Gitee</a>、<a href="https://gitlab.com/dryangyq/ouc-slide-latex-template.git" target="_blank">Gitlab</a>、<a href="https://code.aliyun.com/dryangyq/ouc-slide-latex-template.git">阿里云Code</a>。这些库都和<a href="https://git.yangyq.net/laoyang/ouc-slide-latex-template.git" target="_blank">源库</a>保持一致和同步，从理论上来讲，使用任何一个库都可以。
 2. 安装Tex编译器，推荐使用<a href="https://tug.org/texlive/" target="_blank">TexLive</a>，安装成功后，可以使用自带的TeXworks打开目录下的tex文件进行编译。
 3. 可以安装其他的IDE工具进行Tex文件的编写和修改，推荐使用<a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>。
 4. 编译时，请选择XeLaTex，有时候，可能需要连续编译两次，以得到正确的页码和图表编号。
