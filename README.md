@@ -60,7 +60,7 @@ Tex文件的开头，是基本信息部分，可以根据需要添加`\title`{�
 ```
 其中，`\section` 会有单独的页面进行显示。如下图所示。而且，section还将会出现在目录页面中。
 ![section](/figs/fig01.png )
-`\subsection` 和 `\subsubsection`都没有单独的页面想对应，他们会出现在对应章节的frame中，作为标题进行呈现，并且加入了自动编号的效果。需要说明的是，`\subsection`是必须的，而 `\subsubsection` 却可有可无。他们呈现出的最终的效果，如下图所示。
+`\subsection` 和 `\subsubsection`都没有单独的页面相对应，他们会出现在对应章节的frame中，作为标题进行呈现，并且加入了自动编号的效果。需要说明的是，`\subsection`是必须的，而 `\subsubsection` 却可有可无。他们呈现出的最终的效果，如下图所示。
 ![subsection](/figs/fig02.png)
 **需要注意的是，虽然frame的标题，是由subsection和subsubsection自动生成的，但是frame中的frametitle仍然是必须的，否则没有frametitle这个元素，标题无法自动填充。**
 
